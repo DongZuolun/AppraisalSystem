@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Appraisal_System {
     public partial class FrmUserAppraisal : Form {
-        private DelBindDgv _delBindDgv;
+        private Action _bindDgv;
         public FrmUserAppraisal() {
             InitializeComponent();
         }
@@ -11,7 +11,7 @@ namespace Appraisal_System {
         private void FrmUserAppraisal_Load(object sender, EventArgs e) {
             SetCol();
             SetValue();
-            _delBindDgv = SetValue;
+            _bindDgv = SetValue;
         }
 
         private void SetValue() {
@@ -134,8 +134,15 @@ namespace Appraisal_System {
 
         private void tsmEdit_Click(object sender, EventArgs e) {
             int id = (int)dgvUserAppraisal.SelectedRows[0].Cells["Id"].Value;
-            FrmSetUserAppraisal frmSetUserAppraisal = new(_delBindDgv,id);
+            int year = Convert.ToInt32(cbxYear.Text);
+            FrmUserAppraisalEdit frmSetUserAppraisal = new(id, year, _bindDgv);
             frmSetUserAppraisal.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            int id = (int)dgvUserAppraisal.SelectedRows[0].Cells["Id"].Value;
+            int year = Convert.ToInt32(cbxYear.Text);
+            dgvUserAppraisal.DataSource = UserAppraisals.ListByUserIdAndYear(id, year);
         }
     }
 }

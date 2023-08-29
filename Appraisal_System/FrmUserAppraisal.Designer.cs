@@ -35,6 +35,7 @@
             AppraisalBase = new DataGridViewTextBoxColumn();
             cmsSetUserAppraisal = new ContextMenuStrip(components);
             tsmEdit = new ToolStripMenuItem();
+            btnUpdate = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUserAppraisal).BeginInit();
             cmsSetUserAppraisal.SuspendLayout();
@@ -43,6 +44,7 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            groupBox1.Controls.Add(btnUpdate);
             groupBox1.Controls.Add(cbxYear);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(12, 12);
@@ -133,14 +135,24 @@
             // 
             cmsSetUserAppraisal.Items.AddRange(new ToolStripItem[] { tsmEdit });
             cmsSetUserAppraisal.Name = "cmsSetUserAppraisal";
-            cmsSetUserAppraisal.Size = new Size(181, 48);
+            cmsSetUserAppraisal.Size = new Size(101, 26);
             // 
             // tsmEdit
             // 
             tsmEdit.Name = "tsmEdit";
-            tsmEdit.Size = new Size(180, 22);
+            tsmEdit.Size = new Size(100, 22);
             tsmEdit.Text = "编辑";
             tsmEdit.Click += tsmEdit_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(51, 24);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.TabIndex = 6;
+            btnUpdate.Text = "更新数据";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // FrmUserAppraisal
             // 
@@ -175,5 +187,6 @@
         private DataGridViewTextBoxColumn AppraisalBase;
         private ContextMenuStrip cmsSetUserAppraisal;
         private ToolStripMenuItem tsmEdit;
+        private Button btnUpdate;
     }
 }

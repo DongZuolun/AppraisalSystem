@@ -7,21 +7,23 @@ namespace Appraisal_System.Models {
         public int Id { get; set; }
         public int UserId { get; set; }
         public int CoefficientId { get; set; }
-        public double Count { get; set; }
+        public int Count { get; set; }
         public int AssessmentYear { get; set; }
         public bool IsDel { get; set; }
 
-        public static List<UserAppraisals> ListAll() {
+        public static List<UserAppraisals> ListByUserIdAndYear(int userId, int year) {
             List<UserAppraisals> userAppraisals = new List<UserAppraisals>();
-            DataTable dt = SqlHelper.ExecuteTable("SELECT * FROM UserAppraisals;");
+            DataTable dt = SqlHelper.ExecuteTable("SELECT * FROM UserAppraisals ua WHERE UserId=@UserId AND AssessmentYear=@AssessmentYear;",
+                new SqlParameter("@UserId", userId),
+                new SqlParameter("@AssessmentYear", year)
+                );
             foreach (DataRow dr in dt.Rows) {
                 userAppraisals.Add(dr.DataRowToModel<UserAppraisals>());
             }
             return userAppraisals;
         }
         public static int Insert(UserAppraisals userAppraisals) {
-            return SqlHelper.ExecuteNonQuery("INSERT INTO UserAppraisals (Id,UserId,CoefficientId,Count,AssessmentYear,IsDel) VALUES (@Id,@UserId,@CoefficientId,@Count,@AssessmentYear,@IsDel);",
-                new SqlParameter("@Id", userAppraisals.Id),
+            return SqlHelper.ExecuteNonQuery("INSERT INTO UserAppraisals (UserId,CoefficientId,Count,AssessmentYear,IsDel) VALUES (@UserId,@CoefficientId,@Count,@AssessmentYear,@IsDel);",
                 new SqlParameter("@UserId", userAppraisals.UserId),
                 new SqlParameter("@CoefficientId", userAppraisals.CoefficientId),
                 new SqlParameter("@Count", userAppraisals.Count),
@@ -36,6 +38,12 @@ namespace Appraisal_System.Models {
                 new SqlParameter("@Count", userAppraisals.Count),
                 new SqlParameter("@AssessmentYear", userAppraisals.AssessmentYear),
                 new SqlParameter("@IsDel", userAppraisals.IsDel));
+        }
+        public static int Delete(int userId, int assessmentYear, int coefficientId) {
+            return SqlHelper.ExecuteNonQuery("DELETE FROM UserAppraisals WHERE UserId=@UserId AND AssessmentYear=@AssessmentYear AND CoefficientId=@CoefficientId;",
+                new SqlParameter("@UserId", userId),
+                new SqlParameter("@CoefficientId", coefficientId),
+                new SqlParameter("@AssessmentYear", assessmentYear));
         }
     }
 }

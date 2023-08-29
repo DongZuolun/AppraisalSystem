@@ -91,7 +91,7 @@
             Tag = "";
             Text = "FrmCoefficientManager";
             WindowState = FormWindowState.Maximized;
-            Load += FrmNone_Load;
+            Load += FrmCoefficientManager_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAppraisalCoefficient).EndInit();
             ResumeLayout(false);
         }

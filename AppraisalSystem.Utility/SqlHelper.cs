@@ -10,10 +10,11 @@ namespace Appraisal_System.Utility {
         /// 连接字符串
         /// </summary>
         public static string? ConStr { get; set; }
-        public static DataTable ExecuteTable(string cmdText) {
+        public static DataTable ExecuteTable(string cmdText,params SqlParameter[] sqlParameters) {
             using SqlConnection conn = new(ConStr);
             conn.Open();
-            SqlCommand cmd = new(cmdText, conn);    
+            SqlCommand cmd = new(cmdText, conn);
+            cmd.Parameters.AddRange(sqlParameters);
             SqlDataAdapter sda = new(cmd);          
             DataSet ds = new();                     
             sda.Fill(ds);
@@ -32,7 +33,7 @@ namespace Appraisal_System.Utility {
             cmd.Parameters.AddRange(sqlParameters);
             int rows = cmd.ExecuteNonQuery();
             if (rows <= 0) {
-                throw new Exception("数据库操作异常");
+                //throw new Exception("数据库操作异常");
             }
             return rows;
         }
