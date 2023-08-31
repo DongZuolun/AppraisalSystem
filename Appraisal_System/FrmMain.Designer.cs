@@ -38,6 +38,7 @@
                         // spcMain
                         // 
                         spcMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                        spcMain.BorderStyle = BorderStyle.FixedSingle;
                         spcMain.FixedPanel = FixedPanel.Panel1;
                         spcMain.Location = new Point(0, 0);
                         spcMain.Margin = new Padding(2, 3, 2, 3);
@@ -46,6 +47,11 @@
                         // spcMain.Panel1
                         // 
                         spcMain.Panel1.Controls.Add(trvMenu);
+                        // 
+                        // spcMain.Panel2
+                        // 
+                        spcMain.Panel2.BackgroundImage = Properties.Resources.疾风剑豪;
+                        spcMain.Panel2.BackgroundImageLayout = ImageLayout.Zoom;
                         spcMain.Size = new Size(884, 436);
                         spcMain.SplitterDistance = 144;
                         spcMain.SplitterWidth = 3;
@@ -74,7 +80,7 @@
                         treeNode4.Text = "人员绩效";
                         trvMenu.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode4 });
                         trvMenu.ShowLines = false;
-                        trvMenu.Size = new Size(144, 436);
+                        trvMenu.Size = new Size(142, 434);
                         trvMenu.TabIndex = 0;
                         trvMenu.AfterSelect += trvMenu_AfterSelect;
                         // 
