@@ -37,10 +37,9 @@
                         // 
                         // dgvAppraisalCoefficient
                         // 
-                        dgvAppraisalCoefficient.AllowUserToAddRows = false;
-                        dgvAppraisalCoefficient.AllowUserToDeleteRows = false;
                         dgvAppraisalCoefficient.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                         dgvAppraisalCoefficient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dgvAppraisalCoefficient.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
                         dgvAppraisalCoefficient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgvAppraisalCoefficient.Columns.AddRange(new DataGridViewColumn[] { Id, AppraisalType, AppraisalCoefficient, CalculationMethod, IsDel });
                         dgvAppraisalCoefficient.Location = new Point(12, 82);
@@ -113,7 +112,6 @@
                         AutoScaleMode = AutoScaleMode.Inherit;
                         AutoScroll = true;
                         AutoSize = true;
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         ClientSize = new Size(736, 436);
                         Controls.Add(gbAppraisal);
                         Controls.Add(dgvAppraisalCoefficient);

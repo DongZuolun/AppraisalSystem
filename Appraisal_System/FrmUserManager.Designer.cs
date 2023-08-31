@@ -140,7 +140,7 @@
                         dgvUserAppraisal.AllowUserToDeleteRows = false;
                         dgvUserAppraisal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                         dgvUserAppraisal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                        dgvUserAppraisal.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+                        dgvUserAppraisal.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
                         dgvUserAppraisal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgvUserAppraisal.Columns.AddRange(new DataGridViewColumn[] { Id, UserName, Sex, BaseType, AppraisalBase, IsDel });
                         dgvUserAppraisal.ContextMenuStrip = cmsUserManager;
@@ -210,39 +210,40 @@
                         // 
                         cmsUserManager.Items.AddRange(new ToolStripItem[] { tsmAdd, tsmEdit, tsmStart, tsmStop });
                         cmsUserManager.Name = "cmsUserManager";
-                        cmsUserManager.Size = new Size(101, 92);
+                        cmsUserManager.Size = new Size(181, 114);
                         // 
                         // tsmAdd
                         // 
                         tsmAdd.Name = "tsmAdd";
-                        tsmAdd.Size = new Size(100, 22);
+                        tsmAdd.Size = new Size(180, 22);
                         tsmAdd.Text = "新建";
                         tsmAdd.Click += tsmAdd_Click;
                         // 
                         // tsmEdit
                         // 
                         tsmEdit.Name = "tsmEdit";
-                        tsmEdit.Size = new Size(100, 22);
+                        tsmEdit.Size = new Size(180, 22);
                         tsmEdit.Text = "编辑";
                         tsmEdit.Click += tsmEdit_Click;
                         // 
                         // tsmStart
                         // 
                         tsmStart.Name = "tsmStart";
-                        tsmStart.Size = new Size(100, 22);
+                        tsmStart.Size = new Size(180, 22);
                         tsmStart.Text = "启用";
+                        tsmStart.Click += tsmStart_Click;
                         // 
                         // tsmStop
                         // 
                         tsmStop.Name = "tsmStop";
-                        tsmStop.Size = new Size(100, 22);
+                        tsmStop.Size = new Size(180, 22);
                         tsmStop.Text = "停用";
+                        tsmStop.Click += tsmStop_Click;
                         // 
                         // FrmUserManager
                         // 
                         AutoScaleMode = AutoScaleMode.Inherit;
                         AutoSize = true;
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         ClientSize = new Size(736, 436);
                         Controls.Add(dgvUserAppraisal);
                         Controls.Add(gbUser);

@@ -36,10 +36,9 @@
                         // 
                         // dgvBase
                         // 
-                        dgvBase.AllowUserToAddRows = false;
-                        dgvBase.AllowUserToDeleteRows = false;
                         dgvBase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                         dgvBase.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dgvBase.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
                         dgvBase.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgvBase.Columns.AddRange(new DataGridViewColumn[] { Id, BaseType, AppraisalBase, IsDel });
                         dgvBase.Location = new Point(12, 81);
@@ -103,7 +102,6 @@
                         AutoScaleMode = AutoScaleMode.Inherit;
                         AutoScroll = true;
                         AutoSize = true;
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         ClientSize = new Size(736, 436);
                         Controls.Add(gbBase);
                         Controls.Add(dgvBase);

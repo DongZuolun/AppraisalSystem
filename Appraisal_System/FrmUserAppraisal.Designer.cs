@@ -86,6 +86,7 @@
                         dgvUserAppraisal.AllowUserToOrderColumns = true;
                         dgvUserAppraisal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                         dgvUserAppraisal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dgvUserAppraisal.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
                         dgvUserAppraisal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgvUserAppraisal.Columns.AddRange(new DataGridViewColumn[] { Id, UserName, Sex, BaseType, AppraisalBase });
                         dgvUserAppraisal.ContextMenuStrip = cmsSetUserAppraisal;
@@ -157,7 +158,6 @@
                         AutoScaleMode = AutoScaleMode.Inherit;
                         AutoScroll = true;
                         AutoSize = true;
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         ClientSize = new Size(736, 436);
                         Controls.Add(dgvUserAppraisal);
                         Controls.Add(gbUserAppraisal);

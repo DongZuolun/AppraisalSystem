@@ -38,5 +38,10 @@ namespace Appraisal_System.Models {
                 new SqlParameter("@BaseTypeId", user.BaseTypeId),
                 new SqlParameter("@IsDel", user.IsDel));
         }
-    }
+                public static int Delete(int userId,string userName) {
+                        return SqlHelper.ExecuteNonQuery("DELETE FROM Users  WHERE Id=@Id AND UserName=@UserName",
+                            new SqlParameter("@Id", userId),
+                            new SqlParameter("@UserName", userName));
+                }
+        }
 }

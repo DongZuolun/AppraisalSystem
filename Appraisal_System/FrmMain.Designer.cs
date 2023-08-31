@@ -94,6 +94,7 @@
                         // 
                         AutoScaleDimensions = new SizeF(96F, 96F);
                         AutoScaleMode = AutoScaleMode.Dpi;
+                        AutoSize = true;
                         ClientSize = new Size(884, 461);
                         Controls.Add(btnAuthorByDzl);
                         Controls.Add(spcMain);

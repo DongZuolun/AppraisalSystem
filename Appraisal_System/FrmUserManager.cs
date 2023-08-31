@@ -82,5 +82,32 @@ namespace Appraisal_System {
                         FrmSetUser frmSetUser = new FrmSetUser(_dgv, id);
                         frmSetUser.ShowDialog();
                 }
+
+                private void tsmStart_Click(object sender, EventArgs e) {
+                        int id = (int)dgvUserAppraisal.SelectedRows[0].Cells["Id"].Value;
+                        string userName = (string)dgvUserAppraisal.SelectedRows[0].Cells["UserName"].Value;
+                        Users user = Users.ListAll().Find(x => x.Id == id && x.UserName == userName);
+                        if (user != null) {
+                                user.IsDel = false;
+                                Users.Update(user);
+                                if (Users.Update(user) > 0) {
+                                        MessageBox.Show($"{user.UserName}\r入职办理成功！");
+                                }
+                        }
+                        _dgv();
+                }
+
+                private void tsmStop_Click(object sender, EventArgs e) {
+                        int id = (int)dgvUserAppraisal.SelectedRows[0].Cells["Id"].Value;
+                        string userName = (string)dgvUserAppraisal.SelectedRows[0].Cells["UserName"].Value;
+                        Users user = Users.ListAll().Find(x => x.Id == id && x.UserName == userName);
+                        if (user != null) {
+                                user.IsDel = true;
+                                if (Users.Update(user) > 0) {
+                                        MessageBox.Show($"{user.UserName}\r离职办理成功！");
+                                }
+                        }
+                        _dgv();
+                }
         }
 }
