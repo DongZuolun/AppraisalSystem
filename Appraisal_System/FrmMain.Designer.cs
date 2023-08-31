@@ -47,7 +47,7 @@
                         // 
                         spcMain.Panel1.Controls.Add(trvMenu);
                         spcMain.Size = new Size(884, 436);
-                        spcMain.SplitterDistance = 213;
+                        spcMain.SplitterDistance = 144;
                         spcMain.SplitterWidth = 3;
                         spcMain.TabIndex = 0;
                         // 
@@ -74,7 +74,7 @@
                         treeNode4.Text = "人员绩效";
                         trvMenu.Nodes.AddRange(new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode4 });
                         trvMenu.ShowLines = false;
-                        trvMenu.Size = new Size(213, 436);
+                        trvMenu.Size = new Size(144, 436);
                         trvMenu.TabIndex = 0;
                         trvMenu.AfterSelect += trvMenu_AfterSelect;
                         // 

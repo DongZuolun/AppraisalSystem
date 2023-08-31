@@ -51,6 +51,7 @@
                         // gbUser
                         // 
                         gbUser.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+                        gbUser.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         gbUser.Controls.Add(btnSearch);
                         gbUser.Controls.Add(cbxBase);
                         gbUser.Controls.Add(chkIsStop);
@@ -62,7 +63,7 @@
                         gbUser.Margin = new Padding(4);
                         gbUser.Name = "gbUser";
                         gbUser.Padding = new Padding(4);
-                        gbUser.Size = new Size(704, 64);
+                        gbUser.Size = new Size(710, 60);
                         gbUser.TabIndex = 0;
                         gbUser.TabStop = false;
                         gbUser.Text = "筛选";
@@ -71,7 +72,7 @@
                         // 
                         btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                         btnSearch.Font = new Font("微软雅黑", 10F, FontStyle.Regular, GraphicsUnit.Point);
-                        btnSearch.Location = new Point(576, 23);
+                        btnSearch.Location = new Point(582, 23);
                         btnSearch.Margin = new Padding(4);
                         btnSearch.Name = "btnSearch";
                         btnSearch.Size = new Size(120, 27);
@@ -138,18 +139,19 @@
                         dgvUserAppraisal.AllowUserToAddRows = false;
                         dgvUserAppraisal.AllowUserToDeleteRows = false;
                         dgvUserAppraisal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                        dgvUserAppraisal.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         dgvUserAppraisal.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedHeaders;
                         dgvUserAppraisal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgvUserAppraisal.Columns.AddRange(new DataGridViewColumn[] { Id, UserName, Sex, BaseType, AppraisalBase, IsDel });
                         dgvUserAppraisal.ContextMenuStrip = cmsUserManager;
-                        dgvUserAppraisal.Location = new Point(13, 85);
+                        dgvUserAppraisal.Location = new Point(13, 82);
                         dgvUserAppraisal.Margin = new Padding(4);
                         dgvUserAppraisal.MultiSelect = false;
                         dgvUserAppraisal.Name = "dgvUserAppraisal";
                         dgvUserAppraisal.ReadOnly = true;
                         dgvUserAppraisal.RowTemplate.Height = 23;
                         dgvUserAppraisal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                        dgvUserAppraisal.Size = new Size(704, 336);
+                        dgvUserAppraisal.Size = new Size(710, 341);
                         dgvUserAppraisal.TabIndex = 1;
                         dgvUserAppraisal.CellMouseDown += dgvUserAppraisal_CellMouseDown;
                         dgvUserAppraisal.MouseDown += dgvUserAppraisal_MouseDown;
@@ -160,7 +162,7 @@
                         Id.HeaderText = "编号";
                         Id.Name = "Id";
                         Id.ReadOnly = true;
-                        Id.Width = 110;
+                        Id.Width = 57;
                         // 
                         // UserName
                         // 
@@ -168,7 +170,7 @@
                         UserName.HeaderText = "用户名";
                         UserName.Name = "UserName";
                         UserName.ReadOnly = true;
-                        UserName.Width = 110;
+                        UserName.Width = 69;
                         // 
                         // Sex
                         // 
@@ -176,7 +178,7 @@
                         Sex.HeaderText = "性别";
                         Sex.Name = "Sex";
                         Sex.ReadOnly = true;
-                        Sex.Width = 110;
+                        Sex.Width = 57;
                         // 
                         // BaseType
                         // 
@@ -184,7 +186,7 @@
                         BaseType.HeaderText = "基数类型";
                         BaseType.Name = "BaseType";
                         BaseType.ReadOnly = true;
-                        BaseType.Width = 111;
+                        BaseType.Width = 81;
                         // 
                         // AppraisalBase
                         // 
@@ -192,17 +194,17 @@
                         AppraisalBase.HeaderText = "基数";
                         AppraisalBase.Name = "AppraisalBase";
                         AppraisalBase.ReadOnly = true;
-                        AppraisalBase.Width = 110;
+                        AppraisalBase.Width = 57;
                         // 
                         // IsDel
                         // 
                         IsDel.DataPropertyName = "IsDel";
-                        IsDel.HeaderText = "是否停职";
+                        IsDel.HeaderText = "停职";
                         IsDel.Name = "IsDel";
                         IsDel.ReadOnly = true;
                         IsDel.Resizable = DataGridViewTriState.True;
                         IsDel.SortMode = DataGridViewColumnSortMode.Automatic;
-                        IsDel.Width = 110;
+                        IsDel.Width = 57;
                         // 
                         // cmsUserManager
                         // 
@@ -240,7 +242,8 @@
                         // 
                         AutoScaleMode = AutoScaleMode.Inherit;
                         AutoSize = true;
-                        ClientSize = new Size(730, 434);
+                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                        ClientSize = new Size(736, 436);
                         Controls.Add(dgvUserAppraisal);
                         Controls.Add(gbUser);
                         Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point);

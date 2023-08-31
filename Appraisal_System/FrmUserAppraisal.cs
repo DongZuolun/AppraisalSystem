@@ -53,7 +53,7 @@ namespace Appraisal_System {
                                         //获取AppraisalType对应的dtUser的ColumnName的值
                                         //获取考核次数
                                         string appraisalTypeCountKey = uacFilter[j].AppraisalType;
-                                        double appraisalTypeCountValue = uacFilter[j].Count;
+                                        string appraisalTypeCountValue = uacFilter[j].Count;
                                         //获取考核系数
                                         string appraisalCoefficientKey = uacFilter[j].AppraisalType + uacFilter[j].AppraisalCoefficient;
                                         double appraisalCoefficientValue = uacFilter[j].AppraisalCoefficient;
@@ -66,7 +66,7 @@ namespace Appraisal_System {
                                         dtUser.Rows[i][calculationMethodKey] = calculationMethodValue;
                                         //计算考核系数
                                         //"考核系数"*"次数"*"计算方式"
-                                        yearBonusArray[j] = appraisalCoefficientValue * appraisalTypeCountValue * calculationMethodValue;
+                                        yearBonusArray[j] = appraisalCoefficientValue * Convert.ToInt32(appraisalTypeCountValue == "" ? "0" : appraisalTypeCountValue) * calculationMethodValue;
                                 }
                                 dtUser.Rows[i]["AssessmentYear"] = cbxYear.Text.Trim();
                                 //结算实发年终奖
@@ -139,7 +139,7 @@ namespace Appraisal_System {
                         frmSetUserAppraisal.ShowDialog();
                 }
 
-                private void btnUpdate_Click(object sender, EventArgs e) {
+                private void cbxYear_TextChanged(object sender, EventArgs e) {
                         _bindDgv();
                 }
         }

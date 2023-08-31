@@ -40,14 +40,13 @@
                         dgvAppraisalCoefficient.AllowUserToAddRows = false;
                         dgvAppraisalCoefficient.AllowUserToDeleteRows = false;
                         dgvAppraisalCoefficient.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                        dgvAppraisalCoefficient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        dgvAppraisalCoefficient.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+                        dgvAppraisalCoefficient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                         dgvAppraisalCoefficient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgvAppraisalCoefficient.Columns.AddRange(new DataGridViewColumn[] { Id, AppraisalType, AppraisalCoefficient, CalculationMethod, IsDel });
                         dgvAppraisalCoefficient.Location = new Point(12, 82);
                         dgvAppraisalCoefficient.Name = "dgvAppraisalCoefficient";
                         dgvAppraisalCoefficient.RowTemplate.Height = 25;
-                        dgvAppraisalCoefficient.Size = new Size(776, 356);
+                        dgvAppraisalCoefficient.Size = new Size(710, 341);
                         dgvAppraisalCoefficient.TabIndex = 0;
                         dgvAppraisalCoefficient.CellValueChanged += dgvAppraisalCoefficient_CellValueChanged;
                         // 
@@ -56,24 +55,28 @@
                         Id.DataPropertyName = "Id";
                         Id.HeaderText = "编号";
                         Id.Name = "Id";
+                        Id.Width = 57;
                         // 
                         // AppraisalType
                         // 
                         AppraisalType.DataPropertyName = "AppraisalType";
                         AppraisalType.HeaderText = "类型";
                         AppraisalType.Name = "AppraisalType";
+                        AppraisalType.Width = 57;
                         // 
                         // AppraisalCoefficient
                         // 
                         AppraisalCoefficient.DataPropertyName = "AppraisalCoefficient";
                         AppraisalCoefficient.HeaderText = "系数";
                         AppraisalCoefficient.Name = "AppraisalCoefficient";
+                        AppraisalCoefficient.Width = 57;
                         // 
                         // CalculationMethod
                         // 
                         CalculationMethod.DataPropertyName = "CalculationMethod";
                         CalculationMethod.HeaderText = "计算方式";
                         CalculationMethod.Name = "CalculationMethod";
+                        CalculationMethod.Width = 81;
                         // 
                         // IsDel
                         // 
@@ -82,6 +85,7 @@
                         IsDel.Name = "IsDel";
                         IsDel.Resizable = DataGridViewTriState.True;
                         IsDel.SortMode = DataGridViewColumnSortMode.Automatic;
+                        IsDel.Width = 57;
                         // 
                         // gbAppraisal
                         // 
@@ -89,7 +93,7 @@
                         gbAppraisal.Controls.Add(btnUpdate);
                         gbAppraisal.Location = new Point(12, 12);
                         gbAppraisal.Name = "gbAppraisal";
-                        gbAppraisal.Size = new Size(776, 64);
+                        gbAppraisal.Size = new Size(710, 60);
                         gbAppraisal.TabIndex = 2;
                         gbAppraisal.TabStop = false;
                         gbAppraisal.Text = "选项";
@@ -97,7 +101,7 @@
                         // btnUpdate
                         // 
                         btnUpdate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-                        btnUpdate.Location = new Point(674, 22);
+                        btnUpdate.Location = new Point(608, 22);
                         btnUpdate.Name = "btnUpdate";
                         btnUpdate.Size = new Size(75, 23);
                         btnUpdate.TabIndex = 7;
@@ -106,10 +110,11 @@
                         // 
                         // FrmCoefficientManager
                         // 
-                        AutoScaleDimensions = new SizeF(96F, 96F);
-                        AutoScaleMode = AutoScaleMode.Dpi;
+                        AutoScaleMode = AutoScaleMode.Inherit;
+                        AutoScroll = true;
                         AutoSize = true;
-                        ClientSize = new Size(800, 450);
+                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                        ClientSize = new Size(736, 436);
                         Controls.Add(gbAppraisal);
                         Controls.Add(dgvAppraisalCoefficient);
                         FormBorderStyle = FormBorderStyle.None;

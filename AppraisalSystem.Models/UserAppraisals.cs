@@ -7,7 +7,7 @@ namespace Appraisal_System.Models {
         public int Id { get; set; }
         public int UserId { get; set; }
         public int CoefficientId { get; set; }
-        public int Count { get; set; }
+        public string? Count { get; set; }
         public int AssessmentYear { get; set; }
         public bool IsDel { get; set; }
 
