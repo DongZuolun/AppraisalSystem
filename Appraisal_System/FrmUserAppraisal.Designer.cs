@@ -25,6 +25,9 @@
                 private void InitializeComponent() {
                         components = new System.ComponentModel.Container();
                         gbUserAppraisal = new GroupBox();
+                        btnQuery = new Button();
+                        cbxUserId = new ComboBox();
+                        label1 = new Label();
                         cbxYear = new ComboBox();
                         label2 = new Label();
                         dgvUserAppraisal = new DataGridView();
@@ -42,8 +45,11 @@
                         // 
                         // gbUserAppraisal
                         // 
-                        gbUserAppraisal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                        gbUserAppraisal.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
                         gbUserAppraisal.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                        gbUserAppraisal.Controls.Add(btnQuery);
+                        gbUserAppraisal.Controls.Add(cbxUserId);
+                        gbUserAppraisal.Controls.Add(label1);
                         gbUserAppraisal.Controls.Add(cbxYear);
                         gbUserAppraisal.Controls.Add(label2);
                         gbUserAppraisal.Location = new Point(12, 12);
@@ -53,26 +59,52 @@
                         gbUserAppraisal.TabStop = false;
                         gbUserAppraisal.Text = "选项";
                         // 
+                        // btnQuery
+                        // 
+                        btnQuery.Location = new Point(583, 27);
+                        btnQuery.Name = "btnQuery";
+                        btnQuery.Size = new Size(75, 23);
+                        btnQuery.TabIndex = 8;
+                        btnQuery.Text = "查询";
+                        btnQuery.UseVisualStyleBackColor = true;
+                        btnQuery.Click += btnQuery_Click;
+                        // 
+                        // cbxUserId
+                        // 
+                        cbxUserId.FormattingEnabled = true;
+                        cbxUserId.Location = new Point(69, 27);
+                        cbxUserId.Name = "cbxUserId";
+                        cbxUserId.Size = new Size(179, 25);
+                        cbxUserId.TabIndex = 7;
+                        // 
+                        // label1
+                        // 
+                        label1.AutoSize = true;
+                        label1.Location = new Point(31, 30);
+                        label1.Name = "label1";
+                        label1.Size = new Size(32, 17);
+                        label1.TabIndex = 6;
+                        label1.Text = "用户";
+                        // 
                         // cbxYear
                         // 
                         cbxYear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                         cbxYear.Font = new Font("微软雅黑", 10F, FontStyle.Regular, GraphicsUnit.Point);
                         cbxYear.FormattingEnabled = true;
                         cbxYear.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-                        cbxYear.Location = new Point(530, 23);
+                        cbxYear.Location = new Point(311, 25);
                         cbxYear.Margin = new Padding(4);
                         cbxYear.Name = "cbxYear";
                         cbxYear.Size = new Size(173, 27);
                         cbxYear.TabIndex = 5;
-                        cbxYear.Text = "2018";
-                        cbxYear.TextChanged += cbxYear_TextChanged;
+                        cbxYear.Text = "2023";
                         // 
                         // label2
                         // 
                         label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                         label2.AutoSize = true;
                         label2.Font = new Font("微软雅黑", 10F, FontStyle.Regular, GraphicsUnit.Point);
-                        label2.Location = new Point(485, 26);
+                        label2.Location = new Point(266, 28);
                         label2.Margin = new Padding(4, 0, 4, 0);
                         label2.Name = "label2";
                         label2.Size = new Size(37, 20);
@@ -187,5 +219,8 @@
                 private DataGridViewTextBoxColumn AppraisalBase;
                 private ContextMenuStrip cmsSetUserAppraisal;
                 private ToolStripMenuItem tsmEdit;
+                private ComboBox cbxUserId;
+                private Label label1;
+                private Button btnQuery;
         }
 }

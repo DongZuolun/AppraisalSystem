@@ -1,4 +1,5 @@
 ﻿using Appraisal_System.Models;
+using Appraisal_System.Utility;
 using System.Data;
 
 namespace Appraisal_System {
@@ -46,7 +47,7 @@ namespace Appraisal_System {
                         //给dtUser填充数据
                         List<UserAppraisalCoefficient> userAppraisalCoefficients = UserAppraisalCoefficient.ListAll();
                         for (int i = 0; i < dtUser.Rows.Count; i++) {
-                                var uacFilter = userAppraisalCoefficients.FindAll(m => m.UserId == (int)dtUser.Rows[i]["Id"] && m.AssessmentYear == Convert.ToInt32(cbxYear.Text));
+                                var uacFilter = userAppraisalCoefficients.FindAll(x => x.UserId == (int)dtUser.Rows[i]["Id"] && x.AssessmentYear == Convert.ToInt32(cbxYear.Text));
                                 //系数计算的数组，用于存放每个考核类型的总系数
                                 double[] yearBonusArray = new double[uacFilter.Count];
                                 for (int j = 0; j < uacFilter.Count; j++) {
@@ -80,10 +81,44 @@ namespace Appraisal_System {
                                 dtUser.Rows[i]["YearBonus"] = yearBonus < 0 ? 0 : yearBonus;
                         }
                         dgvUserAppraisal.AutoGenerateColumns = false;
-                        dgvUserAppraisal.DataSource = dtUser;
+                        args[0] = (int)cbxUserId.SelectedValue;
+                        args[1] = Convert.ToInt32(cbxYear?.Text);
+                        if (args[0] == 0) {
+                                dgvUserAppraisal.DataSource = dtUser;
+                        }
+                        else {
+                                DataTable table = (DataTable)dgvUserAppraisal.DataSource;
+                                table.Rows.Clear();
+                                foreach (DataRow row in dtUser.Rows) {
+                                        if (args[0] == (int)row["Id"]) {
+                                                table.Rows.Add(row.ItemArray);
+                                        }
+                                }
+                                dgvUserAppraisal.DataSource = table;
+                        }
                 }
 
+                private int[] args = new int[2];
+
                 private void SetCol() {
+                        List<Users> users = Users.ListAll();
+                        List<Users> usersPlus = new List<Users>();
+                        foreach (Users user in users) {
+                                Users u = user;
+                                u.UserName = $"[{user.Id}]" + user.UserName;
+                                usersPlus.Add(u);
+                        }
+                        usersPlus.Insert(0, new Users {
+                                Id = 0,
+                                UserName = "—查询所有用户—",
+                                Password = "111",
+                                Sex = "未知",
+                                BaseTypeId = 0,
+                                IsDel = false,
+                        });
+                        cbxUserId.DataSource = usersPlus;
+                        cbxUserId.DisplayMember = "UserName";
+                        cbxUserId.ValueMember = "Id";
                         List<AppraisalCoefficients> appraisalCoefficients = AppraisalCoefficients.ListAll();
                         List<DataGridViewTextBoxColumn> dataGridViewTextBoxColumns = new();
                         foreach (var ac in appraisalCoefficients) {
@@ -139,7 +174,7 @@ namespace Appraisal_System {
                         frmSetUserAppraisal.ShowDialog();
                 }
 
-                private void cbxYear_TextChanged(object sender, EventArgs e) {
+                private void btnQuery_Click(object sender, EventArgs e) {
                         _bindDgv();
                 }
         }

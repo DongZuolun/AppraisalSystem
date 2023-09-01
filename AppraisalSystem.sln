@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "绩效管理系统", "绩效管理系统\绩效管理系统.vdproj", "{FBB4E3B3-51B9-4ABC-9B56-54ED408419B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{15F77747-555D-4603-A5E4-FD2E2CD48F44}.Release|Any CPU.Build.0 = Release|Any CPU
 		{15F77747-555D-4603-A5E4-FD2E2CD48F44}.Release|x86.ActiveCfg = Release|x86
 		{15F77747-555D-4603-A5E4-FD2E2CD48F44}.Release|x86.Build.0 = Release|x86
+		{FBB4E3B3-51B9-4ABC-9B56-54ED408419B6}.Debug|Any CPU.ActiveCfg = Debug
+		{FBB4E3B3-51B9-4ABC-9B56-54ED408419B6}.Debug|x86.ActiveCfg = Debug
+		{FBB4E3B3-51B9-4ABC-9B56-54ED408419B6}.Release|Any CPU.ActiveCfg = Release
+		{FBB4E3B3-51B9-4ABC-9B56-54ED408419B6}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

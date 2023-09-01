@@ -242,9 +242,8 @@
                         // 
                         // FrmUserManager
                         // 
-                        AutoScaleMode = AutoScaleMode.None;
+                        AutoScaleMode = AutoScaleMode.Inherit;
                         AutoSize = true;
-                        AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         BackgroundImageLayout = ImageLayout.Zoom;
                         ClientSize = new Size(736, 436);
                         Controls.Add(dgvUserAppraisal);

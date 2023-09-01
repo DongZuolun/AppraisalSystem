@@ -39,7 +39,6 @@
                         // 
                         spcMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                         spcMain.BorderStyle = BorderStyle.FixedSingle;
-                        spcMain.FixedPanel = FixedPanel.Panel1;
                         spcMain.Location = new Point(0, 0);
                         spcMain.Margin = new Padding(2, 3, 2, 3);
                         spcMain.Name = "spcMain";
